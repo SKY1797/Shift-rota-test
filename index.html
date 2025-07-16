@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Master Shift Rota</title>
+
+    <!-- Favicon for browser tabs -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- iOS home screen icon -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <!-- Android manifest -->
+    <link rel="manifest" href="manifest.json" />
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- HOME PAGE -->
+    <div id="home-page" class="page home-page">
+      <div class="container">
+        <header class="home-header">
+          <div class="logo-container">
+            <img
+              src="https://ntpc.co.in/themes/ntpc/images/logo.png"
+              alt="NTPC Logo"
+              class="ntpc-logo"
+            />
+          </div>
+          <h1 class="app-title">Master Shift Rota</h1>
+        </header>
+
+        <main class="home-main">
+          <div class="group-selection-container">
+            <div class="group-selection-card">
+              <h2 class="selection-title">Select Your Group</h2>
+              <div class="group-buttons">
+                <button class="group-button" data-group="A">
+                  <span class="group-label">Group A</span>
+                </button>
+                <button class="group-button" data-group="B">
+                  <span class="group-label">Group B</span>
+                </button>
+                <button class="group-button" data-group="C">
+                  <span class="group-label">Group C</span>
+                </button>
+                <button class="group-button" data-group="D">
+                  <span class="group-label">Group D</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer class="home-footer">
+          <p class="developer-credit">👨‍💻 Developed by Akash Kantaria</p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- CALENDAR PAGE -->
+    <div id="calendar-page" class="page calendar-page hidden">
+      <div class="container">
+        <header class="calendar-page-header">
+          <button class="back-button" id="back-button">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+            <span>Back</span>
+          </button>
+          <h1 class="selected-group-title" id="selected-group-title">
+            Group A
+          </h1>
+        </header>
+
+        <main class="calendar-main">
+          <!-- Group Selection Tabs (hidden for now, keeping for functionality) -->
+          <div class="group-tabs hidden">
+            <button class="group-tab active" data-group="A">Group A</button>
+            <button class="group-tab" data-group="B">Group B</button>
+            <button class="group-tab" data-group="C">Group C</button>
+            <button class="group-tab" data-group="D">Group D</button>
+          </div>
+
+          <!-- Calendar Card -->
+          <div class="calendar-card">
+            <div class="calendar-header">
+              <h2 class="calendar-title" id="calendar-title">
+                <!-- Month/Year will be inserted here -->
+              </h2>
+              <div class="navigation-buttons">
+                <button
+                  class="nav-button"
+                  id="prev-month"
+                  aria-label="Previous month"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m15 18-6-6 6-6" />
+                  </svg>
+                </button>
+                <button
+                  class="nav-button"
+                  id="next-month"
+                  aria-label="Next month"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m9 18 6-6-6-6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="calendar-content">
+              <!-- Week days header -->
+              <div class="weekdays-header">
+                <div class="weekday">Sun</div>
+                <div class="weekday">Mon</div>
+                <div class="weekday">Tue</div>
+                <div class="weekday">Wed</div>
+                <div class="weekday">Thu</div>
+                <div class="weekday">Fri</div>
+                <div class="weekday">Sat</div>
+              </div>
+
+              <!-- Calendar grid -->
+              <div class="calendar-grid" id="calendar-grid">
+                <!-- Calendar days will be inserted here -->
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .then((reg) => console.log("SW registered", reg))
+          .catch((err) => console.error("SW failed", err));
+      }
+    </script> -->
+    
+  </body>
+</html>

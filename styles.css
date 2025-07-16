@@ -1,0 +1,740 @@
+/* Import Modern Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* CSS Variables - Custom Color Palette */
+:root {
+  /* Custom Color Palette */
+  --sage-green: #d9e5d6;
+  --light-beige: #eee0cb;
+  --muted-brown: #baa898;
+  --dark-gray: #585563;
+
+  /* Updated Theme Colors */
+  --background: var(--sage-green);
+  --foreground: var(--dark-gray);
+  --card: rgba(255, 255, 255, 0.9);
+  --card-foreground: var(--dark-gray);
+  --primary: var(--muted-brown);
+  --primary-foreground: #ffffff;
+  --secondary: var(--light-beige);
+  --secondary-foreground: var(--dark-gray);
+  --muted: rgba(186, 168, 152, 0.2);
+  --muted-foreground: var(--dark-gray);
+  --border: rgba(186, 168, 152, 0.3);
+  --ring: var(--muted-brown);
+  --radius: 1rem;
+
+  /* Shift Colors - Updated */
+  --shift-morning: hsl(91, 38%, 65%);
+  --shift-evening: hsl(25, 68%, 67%);
+  --shift-night: hsl(210, 9%, 43%);
+  --shift-weekly-off: hsl(199, 35%, 62%);
+  --shift-general: hsl(207, 100%, 93%);
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    "Poppins",
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Page Management */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.page.hidden {
+  display: none !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Ensure home page shows by default */
+#home-page {
+  display: block;
+}
+
+/* Global Background */
+body {
+  background: linear-gradient(
+    135deg,
+    var(--sage-green) 0%,
+    var(--light-beige) 30%,
+    var(--sage-green) 70%,
+    var(--light-beige) 100%
+  );
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem 0.5rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem;
+  }
+}
+
+/* Home Page Styles */
+.home-page {
+  background: transparent;
+}
+
+.home-header {
+  text-align: center;
+  padding: 1rem 0 0 0;
+}
+
+.logo-container {
+  margin-bottom: 1rem;
+}
+
+.ntpc-logo {
+  height: 4rem;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(88, 85, 99, 0.2));
+}
+
+.app-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--dark-gray);
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  text-shadow: 0 4px 8px rgba(88, 85, 99, 0.2);
+  letter-spacing: -0.02em;
+}
+
+.home-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.group-selection-container {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.selection-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+  margin-bottom: 2rem;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.group-selection-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(238, 224, 203, 0.8) 50%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  border-radius: 2rem;
+  padding: 2.5rem;
+  box-shadow:
+    0 25px 50px -12px rgba(88, 85, 99, 0.15),
+    0 10px 20px -5px rgba(186, 168, 152, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(238, 224, 203, 0.5);
+  backdrop-filter: blur(20px);
+  max-width: 320px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.group-selection-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(217, 229, 214, 0.1) 0%,
+    rgba(238, 224, 203, 0.1) 100%
+  );
+  border-radius: 2rem;
+  pointer-events: none;
+}
+
+.group-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.group-button {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    var(--muted-brown) 0%,
+    var(--dark-gray) 100%
+  );
+  border: none;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  box-shadow:
+    0 8px 25px rgba(88, 85, 99, 0.3),
+    0 4px 10px rgba(186, 168, 152, 0.2);
+  overflow: hidden;
+  width: 100%;
+  letter-spacing: 0.02em;
+}
+
+.group-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.group-button:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    0 15px 35px rgba(88, 85, 99, 0.4),
+    0 8px 20px rgba(186, 168, 152, 0.3);
+  background: linear-gradient(
+    135deg,
+    var(--dark-gray) 0%,
+    var(--muted-brown) 100%
+  );
+}
+
+.group-button:hover::before {
+  left: 100%;
+}
+
+.group-button:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow:
+    0 5px 15px rgba(88, 85, 99, 0.4),
+    0 2px 8px rgba(186, 168, 152, 0.3);
+}
+
+.group-label {
+  position: relative;
+  z-index: 1;
+}
+
+.home-footer {
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+/* Calendar Page Styles */
+.calendar-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    var(--light-beige) 100%
+  );
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  color: var(--dark-gray);
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(88, 85, 99, 0.15);
+  align-self: flex-start;
+}
+
+.back-button:hover {
+  background: linear-gradient(
+    135deg,
+    var(--light-beige) 0%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  transform: translateX(-3px) translateY(-1px);
+  box-shadow: 0 6px 16px rgba(88, 85, 99, 0.2);
+}
+
+.selected-group-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--dark-gray);
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  width: 100%;
+  letter-spacing: -0.01em;
+}
+
+.calendar-main {
+  flex: 1;
+}
+
+/* Legacy styles preserved for calendar functionality */
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  font-family: "Poppins", sans-serif;
+  margin: 0.25rem 0rem;
+  text-align: center;
+}
+
+/* Main Content */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Group Tabs */
+.group-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  background-color: var(--muted);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.25rem;
+  max-width: 24rem;
+  margin: 0 auto;
+  height: 3rem;
+}
+
+.group-tab {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+
+@media (min-width: 640px) {
+  .group-tab {
+    font-size: 0.875rem;
+  }
+}
+
+.group-tab:hover {
+  background-color: var(--secondary);
+}
+
+.group-tab.active {
+  background-color: var(--card);
+  color: var(--foreground);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+}
+
+/* Calendar Card */
+.calendar-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(238, 224, 203, 0.8) 100%
+  );
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow:
+    0 20px 40px -12px rgba(88, 85, 99, 0.15),
+    0 8px 16px -8px rgba(186, 168, 152, 0.2);
+  animation: fadeIn 0.5s ease-in;
+  backdrop-filter: blur(10px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Calendar Header */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.calendar-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+  font-family: "Poppins", sans-serif;
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    var(--light-beige) 100%
+  );
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--dark-gray);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(88, 85, 99, 0.1);
+}
+
+.nav-button:hover {
+  background: linear-gradient(
+    135deg,
+    var(--light-beige) 0%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(88, 85, 99, 0.15);
+}
+
+/* Calendar Content */
+.calendar-content {
+  padding: 0.75rem 1rem 1rem;
+}
+
+.weekdays-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  margin-bottom: 0.25rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.weekday {
+  padding: 0.5rem 0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+/* Day Cards */
+.day-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 7rem;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .day-card {
+    height: 8rem;
+  }
+}
+
+.day-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.day-card.other-month {
+  color: var(--muted-foreground);
+  background-color: var(--muted);
+  opacity: 0.7;
+}
+
+.day-card.today {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  background-color: var(--background);
+}
+
+.day-card.today .day-number {
+  color: var(--primary);
+}
+
+/* Shift Backgrounds */
+.day-card.shift-morning {
+  background-color: var(--shift-morning);
+  color: var(--foreground);
+}
+
+.day-card.shift-evening {
+  background-color: var(--shift-evening);
+  color: var(--foreground);
+}
+
+.day-card.shift-night {
+  background-color: var(--shift-night);
+  color: var(--primary-foreground);
+}
+
+.day-card.shift-weekly-off {
+  background-color: var(--shift-weekly-off);
+  color: var(--primary-foreground);
+}
+
+.day-card.shift-general {
+  background-color: var(--shift-general);
+  color: var(--foreground);
+}
+
+.day-number {
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.125rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.shift-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.25rem;
+}
+
+.shift-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke-width: 2;
+}
+
+.shift-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Shift Icons */
+.shift-morning .shift-icon {
+  color: var(--primary);
+}
+
+.shift-evening .shift-icon {
+  color: var(--primary);
+}
+
+.shift-night .shift-icon {
+  color: var(--primary-foreground);
+}
+
+.shift-weekly-off .shift-icon {
+  color: var(--primary);
+}
+
+.shift-general .shift-icon {
+  color: var(--primary);
+}
+
+/* Shift Names */
+.shift-morning .shift-name {
+  color: var(--muted-foreground);
+}
+
+.shift-evening .shift-name {
+  color: var(--muted-foreground);
+}
+
+.shift-night .shift-name {
+  color: var(--primary-foreground);
+  opacity: 0.8;
+}
+
+.shift-weekly-off .shift-name {
+  color: var(--primary-foreground);
+  opacity: 0.8;
+}
+
+.shift-general .shift-name {
+  color: var(--muted-foreground);
+}
+
+/* Other month adjustments */
+.day-card.other-month .shift-icon,
+.day-card.other-month .shift-name {
+  color: var(--primary);
+}
+
+/* Footer */
+.footer {
+  margin-top: 1.5rem;
+  padding: 0.75rem 0 0 0;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.developer-credit {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  margin: 0;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .title {
+    font-size: 1.875rem;
+  }
+
+  .app-title {
+    font-size: 2rem;
+  }
+
+  .selection-title {
+    font-size: 1.4rem;
+  }
+
+  .selected-group-title {
+    font-size: 1.5rem;
+  }
+
+  .group-selection-card {
+    padding: 2rem;
+  }
+
+  .day-card {
+    height: 5.25rem;
+    padding: 0.5rem 0.5rem;
+  }
+
+  .day-number {
+    font-size: 0.9rem;
+  }
+
+  .shift-name {
+    font-size: 0.875rem;
+  }
+
+  .shift-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .group-tab {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.5rem;
+  }
+}
+
+/* Loading skeleton (for initial state) */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--muted) 25%,
+    var(--secondary) 50%,
+    var(--muted) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
